@@ -6,91 +6,107 @@
     <title>PantherSigner</title>
     <style>
         body {
+            background-color: #181a1b;
+            color: #e8e6e3;
             font-family: Arial, sans-serif;
-            background-color: #f6f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            text-align: center;
         }
-        .header {
-            background-color: white;
+
+        .container {
+            background-color: #1e1f21;
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .header h1 {
-            color: #333;
-            margin: 0;
-        }
-        .main-content {
-            padding: 50px 20px;
-        }
-        .upload-box {
-            margin: 20px auto;
-            padding: 30px;
-            border: 2px dashed #ddd;
             border-radius: 10px;
-            background-color: white;
-            display: inline-block;
-            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
             width: 300px;
         }
-        .upload-box p {
-            margin: 0;
-            color: #888;
-            font-size: 14px;
+
+        h1 {
+            color: #ff5c5c;
+            margin-bottom: 20px;
         }
-        .upload-box input[type="file"] {
-            display: none;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        .upload-box label {
-            display: block;
+
+        label {
+            text-align: left;
+        }
+
+        input[type="file"],
+        input[type="password"],
+        input[type="text"] {
             padding: 10px;
-            background-color: #ff5a5a;
-            color: white;
-            border-radius: 20px;
-            cursor: pointer;
-            margin: 10px 0;
-        }
-        .upload-box small {
-            color: #888;
-        }
-        .sign-button {
-            margin-top: 30px;
-            padding: 15px 30px;
             border: none;
-            background-color: #ff5a5a;
-            color: white;
-            border-radius: 20px;
+            border-radius: 5px;
+            background-color: #282a2d;
+            color: #e8e6e3;
+        }
+
+        input[type="file"] {
             cursor: pointer;
-            font-size: 16px;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="header">
+    <div class="container">
         <h1>PantherSigner</h1>
-    </div>
-
-    <div class="main-content">
-        <div class="upload-box">
-            <p>Upload IPA File</p>
-            <label for="ipa-upload">Choose IPA File</label>
-            <input type="file" id="ipa-upload" accept=".ipa">
-        </div>
-
-        <div class="upload-box">
-            <p>Upload Mobile Provision File</p>
-            <label for="mobileprovision-upload">Choose Mobile Provision File</label>
-            <input type="file" id="mobileprovision-upload" accept=".mobileprovision">
-        </div>
-
-        <div class="upload-box">
-            <p>Upload P12 File</p>
-            <label for="p12-upload">Choose P12 File</label>
-            <input type="file" id="p12-upload" accept=".p12">
-        </div>
-
-        <button class="sign-button">Sign</button>
+        <form>
+            <label for="ipa">IPA *</label>
+            <input type="file" id="ipa" name="ipa">
+            
+            <label for="mobileprovision">MobileProvision *</label>
+            <input type="file" id="mobileprovision" name="mobileprovision">
+            
+            <label for="p12">P12 *</label>
+            <input type="file" id="p12" name="p12">
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            
+            <label for="appname">AppName</label>
+            <input type="text" id="appname" name="appname" placeholder="Example App (optional)">
+            
+            <label for="bundleid">BundleID</label>
+            <input type="text" id="bundleid" name="bundleid" placeholder="com.example.app (optional)">
+            
+            <div class="options">
+                <label for="storecertificate">Store Certificate</label>
+                <input type="checkbox" id="storecertificate" name="storecertificate">
+                
+                <label for="removemobileprovision">Remove MobileProvision</label>
+                <input type="checkbox" id="removemobileprovision" name="removemobileprovision">
+            </div>
+            
+            <button type="submit">Upload and Sign</button>
+        </form>
     </div>
 </body>
 </html>
