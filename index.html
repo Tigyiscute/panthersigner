@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PantherSigner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f7fb;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .header {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            color: #333;
+            margin: 0;
+        }
+        .main-content {
+            padding: 50px 20px;
+        }
+        .upload-box {
+            margin: 20px auto;
+            padding: 30px;
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            background-color: white;
+            display: inline-block;
+            position: relative;
+            width: 300px;
+        }
+        .upload-box p {
+            margin: 0;
+            color: #888;
+            font-size: 14px;
+        }
+        .upload-box input[type="file"] {
+            display: none;
+        }
+        .upload-box label {
+            display: block;
+            padding: 10px;
+            background-color: #ff5a5a;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .upload-box small {
+            color: #888;
+        }
+        .sign-button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            border: none;
+            background-color: #ff5a5a;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PantherSigner</h1>
+    </div>
+
+    <div class="main-content">
+        <div class="upload-box">
+            <p>Upload IPA File</p>
+            <label for="ipa-upload">Choose IPA File</label>
+            <input type="file" id="ipa-upload" accept=".ipa">
+        </div>
+
+        <div class="upload-box">
+            <p>Upload Mobile Provision File</p>
+            <label for="mobileprovision-upload">Choose Mobile Provision File</label>
+            <input type="file" id="mobileprovision-upload" accept=".mobileprovision">
+        </div>
+
+        <div class="upload-box">
+            <p>Upload P12 File</p>
+            <label for="p12-upload">Choose P12 File</label>
+            <input type="file" id="p12-upload" accept=".p12">
+        </div>
+
+        <button class="sign-button">Sign</button>
+    </div>
+</body>
+</html>
