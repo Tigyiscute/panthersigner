@@ -75,14 +75,27 @@
             padding: 10px;
             border: none;
             border-radius: 5px;
-            background-color: #007bff;
-            color: white;
             cursor: pointer;
             margin-top: 20px;
         }
 
         button:hover {
-            background-color: #0056b3;
+            opacity: 0.8;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #282a2d;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress {
+            width: 0;
+            height: 20px;
+            background-color: #007bff; /* Light blue color */
+            transition: width 10s; /* Match the duration with the animation duration */
         }
 
         .dialog-overlay {
@@ -118,13 +131,22 @@
             padding: 10px;
             border: none;
             border-radius: 5px;
-            background-color: #007bff;
-            color: white;
             cursor: pointer;
+            margin: 5px;
         }
 
         .dialog button:hover {
-            background-color: #0056b3;
+            opacity: 0.8;
+        }
+
+        .checkmark {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .checkmark svg {
+            fill: #00c853;
         }
     </style>
 </head>
@@ -161,43 +183,24 @@
                 <input type="checkbox" id="removemobileprovision" name="removemobileprovision">
             </div>
             
-            <button type="button" onclick="showDialog()">Upload and Sign</button>
+            <button type="button" onclick="signIPA()">Upload and Sign</button>
         </form>
+    </div>
+
+    <div class="progress-bar" id="progress-bar">
+        <div class="progress" id="progress"></div>
     </div>
 
     <div class="dialog-overlay" id="dialog-overlay">
         <div class="dialog" id="dialog">
             <div class="checkmark">
-                <svg viewBox="0 0 24 24" width="50" height="50">
+                <svg viewBox="0 0 24 24" width="24" height="24">
                     <circle cx="12" cy="12" r="10" stroke="#00c853" stroke-width="2" fill="none"/>
                     <path d="M6 12l4 4 8-8" stroke="#00c853" stroke-width="2" fill="none"/>
                 </svg>
             </div>
-            <p>Files uploaded, please press the button below to sign your IPA!</p>
-            <button onclick="hideDialog()">Sign IPA</button>
-        </div>
-    </div>
-
-    <script>
-        function showDialog() {
-            const dialogOverlay = document.getElementById('dialog-overlay');
-            const dialog = document.getElementById('dialog');
-            dialogOverlay.style.display = 'flex';
-            setTimeout(() => {
-                dialog.style.opacity = '1';
-                dialog.style.transform = 'scale(1)';
-            }, 10); // Small delay to trigger the animation
-        }
-
-        function hideDialog() {
-            const dialogOverlay = document.getElementById('dialog-overlay');
-            const dialog = document.getElementById('dialog');
-            dialog.style.opacity = '0';
-            dialog.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-                dialogOverlay.style.display = 'none';
-            }, 500); // Match this duration with the animation duration
-        }
-    </script>
-</body>
-</html>
+            <p>IPA Signed!</p>
+            <button style="background-color: #007bff;" onclick="installIPA()">Install IPA</button>
+            <button style="background-color: #aa80ff;" onclick="downloadIPA()">DL IPA</button>
+            <button style="background-color: #ff6666;" onclick="copyURL()">Copy URL</button>
+       
