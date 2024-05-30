@@ -206,7 +206,7 @@
                 </svg>
             </div>
             <p>IPA Signed!</p>
-            <button style="background-color: #ADD8E6;" onclick="installIPA()">Install IPA</button>
+            <button style="background-color: #007bff;" onclick="installIPA()">Install IPA</button>
             <button style="background-color: #DA70D6;" onclick="downloadIPA()">DL IPA</button>
             <button style="background-color: #FF6347;" onclick="copyURL()">Copy URL</button>
         </div>
@@ -240,7 +240,19 @@
         }
 
         function copyURL() {
-            alert('Copy URL clicked');
+            const uuid = generateUUID();
+            const url = `https://maplesigner.ca/install?uuid=${uuid}`;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('URL copied to clipboard');
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
+
+        function generateUUID() {
+            return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            );
         }
     </script>
 </body>
