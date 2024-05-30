@@ -21,9 +21,13 @@
         }
 
         h1 {
-            color: #ff5c5c;
-            margin: 0;
-            font-size: 24px; /* Adjust the font size as needed */
+            color: #ffffff;
+            display: inline;
+            font-size: 20px; /* Adjust the font size as needed */
+        }
+
+        h1 .signer {
+            color: #00008B; /* Dark blue color */
         }
 
         .container {
@@ -77,6 +81,8 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 20px;
+            background-color: #007bff;
+            color: white;
         }
 
         button:hover {
@@ -84,17 +90,17 @@
         }
 
         .progress-bar {
-            width: 100%;
+            width: 90%; /* Adjusted width */
+            margin: 20px auto; /* Centered horizontally */
             background-color: #282a2d;
             border-radius: 5px;
             overflow: hidden;
-            margin-top: 20px;
         }
 
         .progress {
             width: 0;
             height: 20px;
-            background-color: #007bff; /* Light blue color */
+            background-color: #ADD8E6; /* Light blue color */
             transition: width 10s; /* Match the duration with the animation duration */
         }
 
@@ -152,7 +158,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>PantherSigner</h1>
+        <h1>Panther<span class="signer">Signer</span></h1>
     </div>
 
     <div class="container">
@@ -200,7 +206,42 @@
                 </svg>
             </div>
             <p>IPA Signed!</p>
-            <button style="background-color: #007bff;" onclick="installIPA()">Install IPA</button>
-            <button style="background-color: #aa80ff;" onclick="downloadIPA()">DL IPA</button>
-            <button style="background-color: #ff6666;" onclick="copyURL()">Copy URL</button>
-       
+            <button style="background-color: #ADD8E6;" onclick="installIPA()">Install IPA</button>
+            <button style="background-color: #DA70D6;" onclick="downloadIPA()">DL IPA</button>
+            <button style="background-color: #FF6347;" onclick="copyURL()">Copy URL</button>
+        </div>
+    </div>
+
+    <script>
+        function signIPA() {
+            const progress = document.getElementById('progress');
+            const dialogOverlay = document.getElementById('dialog-overlay');
+            const dialog = document.getElementById('dialog');
+
+            // Start progress bar animation
+            progress.style.width = '100%';
+
+            // After the progress bar animation ends, show the dialog
+            setTimeout(() => {
+                dialogOverlay.style.display = 'flex';
+                setTimeout(() => {
+                    dialog.style.opacity = '1';
+                    dialog.style.transform = 'scale(1)';
+                }, 10);
+            }, 10000); // Wait 10 seconds for the progress bar to fill
+        }
+
+        function installIPA() {
+            alert('Install IPA clicked');
+        }
+
+        function downloadIPA() {
+            alert('Download IPA clicked');
+        }
+
+        function copyURL() {
+            alert('Copy URL clicked');
+        }
+    </script>
+</body>
+</html>
