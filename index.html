@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PantherSigner</title>
-    <link rel="icon" type="image/png" href="path/to/your/favicon.png"> <!-- Change the href attribute to the path of your favicon image -->
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Ensure favicon.png is in the root directory -->
     <style>
         body {
             background-color: #181a1b;
@@ -231,28 +231,21 @@
             }, 10000); // Wait 10 seconds for the progress bar to fill
         }
 
-        function installIPA() {
-            alert('Install IPA clicked');
-        }
-
-        function downloadIPA() {
-            alert('Download IPA clicked');
-        }
-
         function copyURL() {
-            const uuid = generateUUID();
-            const url = `https://tigyiscute.github.io/panthersigner/install?uuid=${uuid}`;
+            const url = "https://maplesigner.ca/install?uuid=IGezVf";
             navigator.clipboard.writeText(url).then(() => {
-                alert('URL copied to clipboard');
+                alert("URL copied to clipboard: " + url);
             }).catch(err => {
-                console.error('Could not copy text: ', err);
+                console.error("Failed to copy: ", err);
             });
         }
 
-        function generateUUID() {
-            return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-            );
+        function installIPA() {
+            // Implement the install IPA logic here
+        }
+
+        function downloadIPA() {
+            // Implement the download IPA logic here
         }
     </script>
 </body>
